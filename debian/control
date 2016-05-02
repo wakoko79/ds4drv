@@ -1,0 +1,13 @@
+Source: ds4drv
+Maintainer: Tony Baltovski <tbaltovski@clearpathrobotics.com>
+Section: python
+Priority: optional
+Build-Depends: python (>= 2.6.6-3), python-dev, debhelper (>= 7.4.3), python-setuptools
+Standards-Version: 3.9.5
+X-Python-Version: >= 2.4
+
+Package: python-ds4drv
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, bluez-tools, python-pyudev (>= 0.16), python-evdev (>= 0.3.0), python-setuptools
+Description: Sony DualShock 4 userspace driver for Linux.
+	Allows use of a Sony DualShock 4 controller.

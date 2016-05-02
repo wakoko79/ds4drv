@@ -1,0 +1,4 @@
+root/* .
+udev/*.rules		lib/udev/rules.d/
+*.conf		/etc/
+scripts/* /usr/sbin/

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+  echo "Scanning for PS4 controller"
+  PS4=`hcitool scan | grep -e 'Wireless Controller' | head -1| sed 's/ //g'`
+
+  if [ -z "$PS4" ] ; then
+    echo "ERROR: No Controller found."
+    exit 1
+  else
+    PS4_MAC=${PS4%	Wireless*}
+    PS4_MAC=${PS4_MAC#*	}
+    echo "Found controller with address: '$PS4_MAC'"
+    bluez-simple-agent hci0 $PS4_MAC
+    bluez-test-device trusted $PS4_MAC yes
+  fi
