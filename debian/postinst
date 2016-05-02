@@ -3,9 +3,7 @@
 PKG="ds4drv"
 
 if [ -e /etc/init.d/ds4drv ]; then
-  invoke-rc.d ds4drv restart || true
-else
-  update-rc.d ds4drv defaults
+  update-rc.d -f ds4drv defaults
   update-rc.d ds4drv enable
 fi
 
