@@ -30,6 +30,7 @@ class BluetoothDS4Device(DS4Device):
             ctl_socket.connect((addr, L2CAP_PSM_HIDP_CTRL))
             int_socket.connect((addr, L2CAP_PSM_HIDP_INTR))
             int_socket.setblocking(False)
+            int_socket.settimeout(1.0)
         except socket.error as err:
             DeviceError("Failed to connect: {0}".format(err))
 
