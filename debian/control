@@ -1,5 +1,5 @@
 Source: ds4drv
-Maintainer: Tony Baltovski <tbaltovski@clearpathrobotics.com>
+Maintainer: Tony Baltovski <tony.baltovski@gmail.com>
 Section: python
 Priority: optional
 Build-Depends: python (>= 2.6.6-3), python-dev, debhelper (>= 7.4.3), python-setuptools

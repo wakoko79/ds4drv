@@ -1,5 +1,5 @@
-ds4drv (0.5.1) UNRELEASED; urgency=medium
+ds4drv (0.5.1) trusty; urgency=medium
 
   * Initial release.
 
- -- Tony Baltovski <tbaltovski@clearpathrobotics.com>  Tue, 05 Apr 2016 10:18:53 -0400
+ -- Tony Baltovski <tony.baltovski@gmail.com>  Tue, 05 Apr 2016 10:18:53 -0400
