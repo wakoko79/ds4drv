@@ -63,16 +63,14 @@ class HidrawDS4Device(DS4Device):
         return fcntl.ioctl(self.fd, op, bytes(buf))
 
     def write_report(self, report_id, data):
-        if self.type == "bluetooth":
-            # TODO: Add a check for a kernel that supports writing
-            # output reports when such a kernel has been released.
-            return
-
         hid = bytearray((report_id,))
         self.fd.write(hid + data)
 
     def close(self):
         try:
+            # Reset LED to original hidraw pairing colour.
+            self.set_led(0, 0, 1)
+
             self.fd.close()
             self.input_device.ungrab()
         except IOError:
@@ -106,6 +104,7 @@ class HidrawUSBDS4Device(HidrawDS4Device):
 
 
 HID_DEVICES = {
+    "Sony Interactive Entertainment Wireless Controller": HidrawUSBDS4Device,
     "Sony Computer Entertainment Wireless Controller": HidrawUSBDS4Device,
     "Wireless Controller": HidrawBluetoothDS4Device,
 }

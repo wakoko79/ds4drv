@@ -1,15 +1,43 @@
-#!/bin/bash
+#!/usr/bin/expect
 
-  echo "Scanning for PS4 controller"
-  PS4=`hcitool scan | grep -e 'Wireless Controller' | head -1| sed 's/ //g'`
+puts "** This script must be run as sudo **"
+puts "Searching for PS4 Controller..."
 
-  if [ -z "$PS4" ] ; then
-    echo "ERROR: No Controller found."
-    exit 1
-  else
-    PS4_MAC=${PS4%	Wireless*}
-    PS4_MAC=${PS4_MAC#*	}
-    echo "Found controller with address: '$PS4_MAC'"
-    bluez-simple-agent hci0 $PS4_MAC
-    bluez-test-device trusted $PS4_MAC yes
-  fi
+log_user 0
+set prompt "#"
+
+spawn bluetoothctl -a
+expect "Agent registered"
+expect $prompt
+
+send -- "default-agent\r"
+expect "agent request successful"
+
+send -- "scan on\r"
+expect "Discovery started"
+
+set timeout 15
+
+expect {
+  -re {([A-Z0-9:]{17}) Wireless Controller} {
+      set PS4_MAC $expect_out(1,string)
+      log_user 1
+      send -- "trust $PS4_MAC\r"
+      expect "trust succeeded"
+
+      send -- "pair $PS4_MAC\r"
+      expect "Pairing successful"
+      log_user 0
+      expect $prompt
+  }
+  timeout {
+      puts "No Controller Found"
+  }
+}
+
+send -- "scan off\r"
+expect "Discovery stopped"
+expect $prompt
+
+send "quit\r"
+expect "eof"

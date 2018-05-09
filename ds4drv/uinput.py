@@ -17,7 +17,7 @@ BUTTON_MODIFIERS = ("+", "-")
 
 DEFAULT_A2D_DEADZONE = 50
 DEFAULT_AXIS_OPTIONS = (0, 0, 255, 0, 5)
-DEFAULT_MOUSE_SENSITIVTY = 0.6
+DEFAULT_MOUSE_SENSITIVTY = 0.8
 DEFAULT_MOUSE_DEADZONE = 5
 DEFAULT_SCROLL_REPEAT_DELAY = .250 # Seconds to wait before continual scrolling
 DEFAULT_SCROLL_DELAY = .035        # Seconds to wait between scroll events
@@ -347,7 +347,7 @@ class UInputDevice(object):
         """Resets the device to a blank state."""
         for name in self.layout.axes:
             params = self.layout.axes_options.get(name, DEFAULT_AXIS_OPTIONS)
-            self.write_event(ecodes.EV_ABS, name, int(sum(params[:2]) / 2))
+            self.write_event(ecodes.EV_ABS, name, int(sum(params[1:3]) / 2))
 
         for name in self.layout.buttons:
             self.write_event(ecodes.EV_KEY, name, False)

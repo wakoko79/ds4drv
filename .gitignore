@@ -24,10 +24,3 @@ dist
 *.so
 __pycache__
 docs/_build
-debian/debhelper-build-stamp
-debian/files
-debian/*.debhelper.log
-debian/*.postinst.debhelper
-debian/*.prerm.debhelper
-debian/*.substvars
-debian/python-ds4drv/
