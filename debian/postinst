@@ -7,4 +7,8 @@ if [ -e /etc/init.d/ds4drv ]; then
   update-rc.d ds4drv enable
 fi
 
+if [ -e /etc/bluetooth/main.conf ]; then
+  echo "AutoEnable=true#ds4drv#" >> /etc/bluetooth/main.conf
+fi
+
 #DEBHELPER
