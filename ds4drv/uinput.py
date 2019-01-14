@@ -344,10 +344,10 @@ class UInputDevice(object):
         self.device.syn()
 
     def emit_reset(self):
-        """Resets the device to a blank state."""
+        """Resets the device to a zero state."""
         for name in self.layout.axes:
             params = self.layout.axes_options.get(name, DEFAULT_AXIS_OPTIONS)
-            self.write_event(ecodes.EV_ABS, name, int(sum(params[1:3]) / 2))
+            self.write_event(ecodes.EV_ABS, name, int((params[1] + params[2]) / 2))
 
         for name in self.layout.buttons:
             self.write_event(ecodes.EV_KEY, name, False)

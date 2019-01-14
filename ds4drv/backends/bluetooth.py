@@ -142,4 +142,3 @@ class BluetoothBackend(Backend):
             except DeviceError as err:
                 self.logger.error("Unable to connect to detected device: {0}",
                                   err)
-
