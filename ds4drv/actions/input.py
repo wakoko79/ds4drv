@@ -34,7 +34,7 @@ class ReportActionInput(ReportAction):
         self.joystick = None
         self.joystick_layout = None
         self.mouse = None
-
+        self.enable_input = True
         # USB has a report frequency of 4 ms while BT is 2 ms, so we
         # use 5 ms between each mouse emit to keep it consistent and to
         # allow for at least one fresh report to be received inbetween
@@ -104,17 +104,27 @@ class ReportActionInput(ReportAction):
             self.controller.exit("Failed to create input device: {0}", err)
 
     def emit_mouse(self, report):
-        if self.joystick:
-            self.joystick.emit_mouse(report)
+        if self.enable_input:
+            if self.joystick:
+                self.joystick.emit_mouse(report)
 
-        if self.mouse:
-            self.mouse.emit_mouse(report)
+            if self.mouse:
+                self.mouse.emit_mouse(report)
+        else:
+            if self.joystick:
+                # Stop sending the messages it does receive and immediately publish zeroes
+                self.joystick.emit_reset()
+
+            if self.mouse:
+                # Stop sending the messages it does receive and immediately publish zeroes
+                self.mouse.emit_reset()
 
         return True
 
     def handle_report(self, report):
-        if self.joystick:
-            self.joystick.emit(report)
+        if self.enable_input:
+            if self.joystick:
+                self.joystick.emit(report)
 
-        if self.mouse:
-            self.mouse.emit(report)
+            if self.mouse:
+                self.mouse.emit(report)
