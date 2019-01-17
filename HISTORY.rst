@@ -2,7 +2,7 @@
 Release history
 ---------------
 
-0.5.1 (2019-01-17)
+0.5.2 (2019-01-17)
 ^^^^^^^^^^^^^^^^^^
 
 - Added a connection quality check
