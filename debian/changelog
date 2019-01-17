@@ -1,3 +1,9 @@
+ds4drv (0.5.2) trusty; urgency=medium
+
+  * Added a connection quality check
+
+ -- Dave Niewinski <dniewinski@clearpathrobotics.com>  Thu, 17 Jan 2019 10:23:40 -0500
+
 ds4drv (0.5.1xenial) xenial; urgency=medium
 
   * Re-release for Xenial.
