@@ -6,7 +6,7 @@ puts "Searching for PS4 Controller..."
 log_user 0
 set prompt "#"
 
-spawn bluetoothctl -a
+spawn bluetoothctl
 expect "Agent registered"
 expect $prompt
 
