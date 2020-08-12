@@ -1,3 +1,9 @@
+ds4drv (0.5.3-bionic) bionic; urgency=medium
+
+  * Fixed ds4drv-pair script to work on Bionic
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com> Wed, 12 Aug 2020 12:49:16 -0400
+
 ds4drv (0.5.2-bionic) bionic; urgency=medium
 
   * Added a connection quality check
