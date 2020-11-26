@@ -2,7 +2,19 @@
 Release history
 ---------------
 
-0.5.1 (2019-01-17)
+0.5.4 (2020-11-26)
+^^^^^^^^^^^^^^^^^^
+
+- Add input/ps4 symlink for compatibility with Melodic robot branches
+
+
+0.5.3 (2020-08-12)
+^^^^^^^^^^^^^^^^^^
+
+- Fixed ds4drv-pair script to work on Bionic
+
+
+0.5.2 (2019-01-17)
 ^^^^^^^^^^^^^^^^^^
 
 - Added a connection quality check
