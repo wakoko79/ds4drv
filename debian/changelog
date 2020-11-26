@@ -1,3 +1,9 @@
+ds4drv (0.4.2-bipnic) bionic; urgency=medium
+
+  * Add input/ps4 symlink for compatibility with Melodic robot branches
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Thu, 26 Nov 2020 16:32:40 -0500
+
 ds4drv (0.5.3-bionic) bionic; urgency=medium
 
   * Fixed ds4drv-pair script to work on Bionic
