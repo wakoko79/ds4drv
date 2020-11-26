@@ -1,4 +1,4 @@
-ds4drv (0.4.2-bipnic) bionic; urgency=medium
+ds4drv (0.4.2-bionic) bionic; urgency=medium
 
   * Add input/ps4 symlink for compatibility with Melodic robot branches
 
