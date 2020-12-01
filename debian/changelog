@@ -1,3 +1,9 @@
+ds4drv (0.5.5-bionic) bionic; urgency=medium
+
+  * Fix a bug with the AutoEnable flag in /etc/bluetooth/main.conf that was preventing bluetooth from powering-on
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Thu, 1 Dec 2020 11:50:39 -0500
+
 ds4drv (0.5.4-bionic) bionic; urgency=medium
 
   * Add input/ps4 symlink for compatibility with Melodic robot branches

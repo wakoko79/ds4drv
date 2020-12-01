@@ -2,6 +2,11 @@
 Release history
 ---------------
 
+0.5.5 (2020-12-01)
+^^^^^^^^^^^^^^^^^^
+
+- Fix a bug with the AutoEnable flag in /etc/bluetooth/main.conf that was preventing bluetooth from powering-on
+
 0.5.4 (2020-11-26)
 ^^^^^^^^^^^^^^^^^^
 
@@ -114,5 +119,3 @@ Release history
 ^^^^^^^^^^^^^^^^^^
 
 - First release.
-
-
