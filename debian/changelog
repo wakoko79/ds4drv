@@ -1,3 +1,9 @@
+ds4drv  (0.6.6-focal) focal; urgency=medium
+
+  * Initial release for Focal
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Thu, 22 Apr 2021 16:14:19 -0500
+
 ds4drv (0.5.5-bionic) bionic; urgency=medium
 
   * Fix a bug with the AutoEnable flag in /etc/bluetooth/main.conf that was preventing bluetooth from powering-on
