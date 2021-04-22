@@ -11,4 +11,9 @@ if [ -e /etc/bluetooth/main.conf ]; then
   sed -i -e 's/AutoEnable=true #ds4drv#//g' /etc/bluetooth/main.conf
 fi
 
+# remove the symlink
+if [ -e /lib/systemd/system/multi-user.target.wants/ds4drv.service ];
+then
+  rm /lib/systemd/system/multi-user.target.wants/ds4drv.service
+fi
 #DEBHELPER

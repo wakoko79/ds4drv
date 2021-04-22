@@ -1,3 +1,10 @@
+ds4drv (0.5.6-bionic) bionic; urgency=medium
+
+  * Move where the ds4drv.service file gets installed, so it launches properly
+  * Change the name of the generated /dev/input/js* device so it's properly picked-up by the udev rule
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Thu, 22 Apr 2021 16:28:11 -0500
+
 ds4drv (0.5.5-bionic) bionic; urgency=medium
 
   * Fix a bug with the AutoEnable flag in /etc/bluetooth/main.conf that was preventing bluetooth from powering-on

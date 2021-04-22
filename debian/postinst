@@ -18,4 +18,9 @@ if [ -e /etc/bluetooth/main.conf ]; then
   fi
 fi
 
+# symlink the service into the multi-user.wants folder
+if [ ! -e /lib/systemd/system/multi-user.target.wants/ds4drv.service ];
+then
+  ln -s /lib/systemd/system/ds4drv.service /lib/systemd/system/multi-user.target.wants/ds4drv.service
+fi
 #DEBHELPER

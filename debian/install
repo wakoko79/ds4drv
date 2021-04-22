@@ -1,4 +1,4 @@
-systemd/* /etc/systemd/system/multi-user.target.wants/
+systemd/* /lib/systemd/system/
 udev/*.rules		lib/udev/rules.d/
 *.conf		/etc/
 scripts/* /usr/sbin/

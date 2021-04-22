@@ -2,6 +2,12 @@
 Release history
 ---------------
 
+0.5.6 (2021-04-22)
+^^^^^^^^^^^^^^^^^^
+
+- Fix where the .service file gets installed to
+- Fix the name of the generated input device so the udev rule picks it up properly
+
 0.5.5 (2020-12-01)
 ^^^^^^^^^^^^^^^^^^
 
