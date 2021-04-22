@@ -196,7 +196,7 @@ def main():
                                    device.device_addr)
             continue
 
-        for thread in filter(lambda t: not t.controller.device, threads):
+        for thread in [t for t in threads if not t.controller.device]:
             break
         else:
             thread = create_controller_thread(len(threads) + 1,

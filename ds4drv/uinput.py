@@ -47,11 +47,11 @@ def parse_button(attr):
 def create_mapping(name, description, bustype=0, vendor=0, product=0,
                    version=0, axes={}, axes_options={}, buttons={},
                    hats={}, keys={}, mouse={}, mouse_options={}):
-    axes = {getattr(ecodes, k): v for k,v in axes.items()}
-    axes_options = {getattr(ecodes, k): v for k,v in axes_options.items()}
-    buttons = {getattr(ecodes, k): parse_button(v) for k,v in buttons.items()}
-    hats = {getattr(ecodes, k): v for k,v in hats.items()}
-    mouse = {getattr(ecodes, k): parse_button(v) for k,v in mouse.items()}
+    axes = {getattr(ecodes, k): v for k,v in list(axes.items())}
+    axes_options = {getattr(ecodes, k): v for k,v in list(axes_options.items())}
+    buttons = {getattr(ecodes, k): parse_button(v) for k,v in list(buttons.items())}
+    hats = {getattr(ecodes, k): v for k,v in list(hats.items())}
+    mouse = {getattr(ecodes, k): parse_button(v) for k,v in list(mouse.items())}
 
     mapping = UInputMapping(description, bustype, vendor, product, version,
                             axes, axes_options, buttons, hats, keys, mouse,
@@ -311,11 +311,11 @@ class UInputDevice(object):
     def emit(self, report):
         """Writes axes, buttons and hats with values from the report to
         the device."""
-        for name, attr in self.layout.axes.items():
+        for name, attr in list(self.layout.axes.items()):
             value = getattr(report, attr)
             self.write_event(ecodes.EV_ABS, name, value)
 
-        for name, attr in self.layout.buttons.items():
+        for name, attr in list(self.layout.buttons.items()):
             attr, modifier = attr
 
             if attr in self.ignored_buttons:
@@ -331,7 +331,7 @@ class UInputDevice(object):
 
             self.write_event(ecodes.EV_KEY, name, value)
 
-        for name, attr in self.layout.hats.items():
+        for name, attr in list(self.layout.hats.items()):
             if getattr(report, attr[0]):
                 value = -1
             elif getattr(report, attr[1]):
@@ -359,7 +359,7 @@ class UInputDevice(object):
 
     def emit_mouse(self, report):
         """Calculates relative mouse values from a report and writes them."""
-        for name, attr in self.layout.mouse.items():
+        for name, attr in list(self.layout.mouse.items()):
             # If the attr is a tuple like (left_analog_y, "-")
             # then set the attr to just be the first item
             attr, modifier = attr
@@ -454,7 +454,7 @@ def parse_uinput_mapping(name, mapping):
     axes, buttons, mouse, mouse_options = {}, {}, {}, {}
     description = "ds4drv custom mapping ({0})".format(name)
 
-    for key, attr in mapping.items():
+    for key, attr in list(mapping.items()):
         key = key.upper()
         if key.startswith("BTN_") or key.startswith("KEY_"):
             buttons[key] = attr

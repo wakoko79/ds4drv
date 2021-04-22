@@ -4,7 +4,7 @@ import re
 import sys
 
 try:
-    import ConfigParser as configparser
+    import configparser as configparser
 except ImportError:
     import configparser
 
@@ -76,7 +76,7 @@ class Config(configparser.SafeConfigParser):
     def section_to_args(self, section):
         args = []
 
-        for key, value in self.section(section).items():
+        for key, value in list(self.section(section).items()):
             if value.lower() == "true":
                 args.append("--{0}".format(key))
             elif value.lower() == "false":
@@ -89,9 +89,7 @@ class Config(configparser.SafeConfigParser):
     def section(self, section, key_type=str, value_type=str):
         try:
             # Removes empty values and applies types
-            return dict(map(lambda kv: (key_type(kv[0]), value_type(kv[1])),
-                            filter(lambda i: bool(i[1]),
-                                   self.items(section))))
+            return dict([(key_type(kv[0]), value_type(kv[1])) for kv in [i for i in self.items(section) if bool(i[1])]])
         except configparser.NoSectionError:
             return {}
 
@@ -106,7 +104,7 @@ class Config(configparser.SafeConfigParser):
         if not controller_sections:
             return ["--next-controller"]
 
-        last_controller = max(map(lambda c: int(c[0]), controller_sections))
+        last_controller = max([int(c[0]) for c in controller_sections])
         args = []
         for i in range(1, last_controller + 1):
             section = controller_sections.get(str(i))
@@ -144,8 +142,7 @@ class ControllerAction(argparse.Action):
             if hasattr(namespace, option):
                 value = namespace.__dict__.pop(option)
                 if isinstance(value, str):
-                    for action in filter(lambda a: a.dest == option,
-                                         parser._actions):
+                    for action in [a for a in parser._actions if a.dest == option]:
                         value = parser._get_value(action, value)
             else:
                 value = getattr(defaults, option)
@@ -164,13 +161,13 @@ def hexcolor(color):
         raise ValueError
 
     values = (color[:2], color[2:4], color[4:6])
-    values = map(lambda x: int(x, 16), values)
+    values = [int(x, 16) for x in values]
 
     return tuple(values)
 
 
 def stringlist(s):
-    return list(filter(None, map(str.strip, s.split(","))))
+    return list([_f for _f in map(str.strip, s.split(",")) if _f])
 
 
 def buttoncombo(sep):
@@ -180,7 +177,7 @@ def buttoncombo(sep):
 
 
 def merge_options(src, dst, defaults):
-    for key, value in src.__dict__.items():
+    for key, value in list(src.__dict__.items()):
         if key == "controllers":
             continue
 
@@ -195,7 +192,7 @@ def load_options():
 
     config = Config()
     config_paths = options.config and (options.config,) or CONFIG_FILES
-    for path in filter(os.path.exists, map(os.path.expanduser, config_paths)):
+    for path in filter(os.path.exists, list(map(os.path.expanduser, config_paths))):
         config.load(path)
         break
 
@@ -229,7 +226,7 @@ def load_options():
 
     for name, section in config.sections("mapping"):
         mapping = config.section(section)
-        for key, attr in mapping.items():
+        for key, attr in list(mapping.items()):
             if '#' in attr: # Remove tailing comments on the line
                 attr = attr.split('#', 1)[0].rstrip()
                 mapping[key] = attr
