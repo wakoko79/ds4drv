@@ -2,6 +2,11 @@
 Release history
 ---------------
 
+0.6.7 (2021-04-27)
+^^^^^^^^^^^^^^^^^^
+
+- Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
+
 0.6.6 (2021-04-22)
 ^^^^^^^^^^^^^^^^^^
 
