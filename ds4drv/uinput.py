@@ -296,7 +296,7 @@ class UInputDevice(object):
                     events[ecodes.EV_REL].append(name)
                 self.mouse_rel[name] = 0.0
 
-        self.device = UInput(name="Wireless Controller", events=events,   #name=layout.name
+        self.device = UInput(name="DS4DRV Managed Wireless Controller", events=events,   #name=layout.name
                              bustype=layout.bustype, vendor=layout.vendor,
                              product=layout.product, version=layout.version)
         self.layout = layout
