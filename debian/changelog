@@ -1,4 +1,4 @@
-ds4drv (0.5.7-focal) focal; urgency=medium
+ds4drv (0.5.7-bionic) focal; urgency=medium
 
   * Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
 
