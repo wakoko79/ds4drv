@@ -1,3 +1,9 @@
+ds4drv (0.5.7-focal) focal; urgency=medium
+
+  * Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 27 Apr 2021 14:53:10 -0500
+
 ds4drv (0.5.6-bionic) bionic; urgency=medium
 
   * Move where the ds4drv.service file gets installed, so it launches properly
