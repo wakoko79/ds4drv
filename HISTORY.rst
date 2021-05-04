@@ -2,15 +2,26 @@
 Release history
 ---------------
 
-0.6.7 (2021-04-27)
+0.6.8 (2021-05-04)
 ^^^^^^^^^^^^^^^^^^
 
-- Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
+0.6.7 (2021-04-27)
+^^^^^^^^^^^^^^^^^^
 
 0.6.6 (2021-04-22)
 ^^^^^^^^^^^^^^^^^^
 
 - Initial release for Focal
+
+0.5.8 (2021-05-04)
+^^^^^^^^^^^^^^^^^^
+
+- Automatically enable ds4drv.service
+
+0.5.7 (2021-04-27)
+^^^^^^^^^^^^^^^^^^
+
+- Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
 
 0.5.5 (2020-12-01)
 ^^^^^^^^^^^^^^^^^^

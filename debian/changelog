@@ -1,14 +1,30 @@
+
+ds4drv (0.6.8-focal) focal; urgency=medium
+
+  * Merge recent changes from Bionic
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 4 May 2021 14:06:19 -0500
+
 ds4drv (0.6.7-focal) focal; urgency=medium
 
-  * Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
-
- -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 27 Apr 2021 14:53:10 -0500
 
 ds4drv (0.6.6-focal) focal; urgency=medium
 
   * Initial release for Focal
 
  -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Thu, 22 Apr 2021 16:14:19 -0500
+
+ ds4drv (0.5.8-bionic) focal; urgency=medium
+
+   * Automatically enable the ds4drv.service systemd job after installation
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 4 May 2021 14:06:19 -0500
+
+ ds4drv (0.5.7-bionic) focal; urgency=medium
+
+   * Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 27 Apr 2021 14:53:10 -0500
 
 ds4drv (0.5.5-bionic) bionic; urgency=medium
 
