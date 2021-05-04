@@ -1,3 +1,9 @@
+ds4drv (0.5.8-bionic) focal; urgency=medium
+
+  * Automatically enable the ds4drv.service systemd job after installation
+
+ -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 4 May 2021 14:06:19 -0500
+
 ds4drv (0.5.7-bionic) focal; urgency=medium
 
   * Change the name of the virtual js* device to be less generic to avoid possible issues where we symlink to the wrong device
