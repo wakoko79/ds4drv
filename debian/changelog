@@ -16,7 +16,8 @@ ds4drv (0.6.6-focal) focal; urgency=medium
 
  ds4drv (0.5.8-bionic) focal; urgency=medium
 
-   * Automatically enable the ds4drv.service systemd job after installation
+  * Automatically enable the ds4drv.service systemd job after installation
+  * Automatically disable the dsrdrv.service systemd job before removal
 
  -- Chris Iverach-Brereton <civerachb@clearpathrobotics.com>  Tue, 4 May 2021 14:06:19 -0500
 

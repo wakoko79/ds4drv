@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+# disable the service when we uninstall
+systemctl enable ds4drv.service

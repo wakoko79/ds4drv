@@ -5,6 +5,8 @@ Release history
 0.6.8 (2021-05-04)
 ^^^^^^^^^^^^^^^^^^
 
+- Merge recent changes from Bionic
+
 0.6.7 (2021-04-27)
 ^^^^^^^^^^^^^^^^^^
 
@@ -16,7 +18,8 @@ Release history
 0.5.8 (2021-05-04)
 ^^^^^^^^^^^^^^^^^^
 
-- Automatically enable ds4drv.service
+- Automatically enable ds4drv.service when installing
+- Automatically disable dsrdrv.service when uninstalling
 
 0.5.7 (2021-04-27)
 ^^^^^^^^^^^^^^^^^^
