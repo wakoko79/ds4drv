@@ -2,6 +2,11 @@
 Release history
 ---------------
 
+0.6.9 (2021-08-03)
+^^^^^^^^^^^^^^^^^^
+
+- Make sure to use Python3 on the Focal branch
+
 0.6.8 (2021-05-04)
 ^^^^^^^^^^^^^^^^^^
 
