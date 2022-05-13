@@ -2,8 +2,12 @@
 
 from setuptools import setup
 
+import sys
+
 readme = open("README.rst").read()
 history = open("HISTORY.rst").read()
+
+sys.executable = "/usr/bin/python3"
 
 setup(name="ds4drv",
       version="0.5.5",
@@ -14,7 +18,9 @@ setup(name="ds4drv",
       license="MIT",
       long_description=readme + "\n\n" + history,
       entry_points={
-        "console_scripts": ["ds4drv=ds4drv.__main__:main"]
+        "console_scripts": [
+          "ds4drv=ds4drv.__main__:main"
+        ]
       },
       packages=["ds4drv",
                 "ds4drv.actions",
