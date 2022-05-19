@@ -1,3 +1,7 @@
+ds4drv (0.6.10-focal) focal; urgency=medium
+
+  * More Python3 updates.
+
 ds4drv (0.6.9-focal) focal; urgency=medium
 
   * Make sure to use Python3 instead of Python2 on Focal
