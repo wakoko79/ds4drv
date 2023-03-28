@@ -22,6 +22,7 @@ setup(name="ds4drv",
           "ds4drv=ds4drv.__main__:main"
         ]
       },
+      scripts=['scripts/ds4drv-pair'],
       packages=["ds4drv",
                 "ds4drv.actions",
                 "ds4drv.backends",
