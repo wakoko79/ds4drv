@@ -47,6 +47,26 @@ def install_udev_rules(raise_exception):
             print(msg)
 
 
+
+def system_daemon_reload():
+    call(["systemctl", "daemon-reload"])
+
+def system_daemon_enable_ds4drv_service():
+    call(["systemctl", "enable", "ds4drv.service"])
+
+def install_systemd_service_unit(raise_exception):
+    if check_root():
+        copy_file("systemd/ds4drv.service", "/lib/systemd/system/")
+        execute(system_daemon_reload, (), "Reloading system daemon")
+        execute(system_daemon_enable_ds4drv_service, (), "Enabling ds4drv.service")
+    else:
+        msg = 'You must have root privileges to install ds4drv.service. Run "sudo python setup.py systemd"'
+        if raise_exception:
+            raise OSError(msg)
+        else:
+            print(msg)
+
+
 def check_root():
     return os.geteuid() == 0
 
@@ -68,10 +88,24 @@ class InstallUdevRules(Command):
     def run(self):
         install_udev_rules(True)
 
+class InstallSystemdService(Command):
+    description = "install systemd service (requires root privileges)"
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        install_systemd_service_unit(True)
+
 class CustomInstall(install):
     def run(self):
         install.run(self)
         install_udev_rules(True)
+        install_systemd_service_unit(True)
 
 
 class CustomDevelop(develop):
@@ -109,6 +143,7 @@ setup(name="ds4drv",
       ],
       cmdclass={
         "udev_rules": InstallUdevRules,
+        "systemd": InstallSystemdService,
         "install": CustomInstall,
         "develop": CustomDevelop,
       },
